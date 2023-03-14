@@ -1,9 +1,15 @@
-server:
-  port: 8082
-
 spring:
   application:
     name: ms-financeiro
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    port: ${RABBITMQ_PORT:5672}
+    listener:
+      simple:
+        max-concurrency: 2
+    connection-timeout: 1000
 
 
 
